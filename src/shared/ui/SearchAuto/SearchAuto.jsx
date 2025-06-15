@@ -1,5 +1,7 @@
 import './SearchAuto.css';
 import React, { useState, useEffect } from 'react';
+import russia from '../../../../public/russia.svg';
+import Union from '../../../../public/Union.svg';
 
 // Маппинг латинских букв на русские
 const latinToCyrillic = {
@@ -218,13 +220,13 @@ function SearchAuto() {
                   }
                 />
                 <div className="w-4 h-2">
-                  <img className="object-cover" src="../../../../public/russia.svg" alt="флаг" />
+                  <img className="object-cover" src={russia} alt="флаг" />
                 </div>
               </div>
             </div>
           </div>
           <button type="submit" className="h-full w-full flex items-center justify-center">
-            <img src="../../../../public/Union.svg" alt="" />
+            <img src={Union} alt="" />
           </button>
         </div>
       </form>
