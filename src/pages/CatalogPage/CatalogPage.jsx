@@ -4,7 +4,7 @@ import SearchAuto from '../../shared/ui/SearchAuto/SearchAuto';
 function CatalogPage() {
   return (
     <div className="flex flex-col justify-center items-center">
-      <p className="font-[Open_Sans] font-normal not-italic text-xs leadind-[16px] text-gray-500 text-center m-[20px_10px]">
+      <p className="font-[Open_Sans] font-normal not-italic text-xs leadind-[16px] text-[#666666] text-center m-[20px_10px]">
         Добро пожаловать! <br /> Перед вами крупнейший каталог номеров в Санкт-Пербурге
       </p>
       <SearchAuto />

@@ -155,11 +155,11 @@ function SearchAuto() {
           <div className="flex items-center w-[185px] border-r border-r-gray-900">
             <div className="flex gap-[10px] text-2xl pl-2.5 pr-5">
               <input
-                className="w-5 focus:outline-none border-b border-gray-400 text-center"
+                className="w-5 focus:outline-none border-b border-gray-400 text-center placeholder-[#CCCCCC]"
                 type="text"
                 name="series1"
                 maxLength="1"
-                placeholder="А"
+                placeholder="o"
                 value={series1}
                 onChange={(e) => handleInput(e, 'series1')}
                 onPaste={(e) => handlePaste(e, 'series1')}
@@ -168,11 +168,11 @@ function SearchAuto() {
                 }
               />
               <input
-                className="w-11 focus:outline-none border-b border-gray-400 text-center"
+                className="w-11 focus:outline-none border-b border-gray-400 text-center placeholder-[#CCCCCC]"
                 type="text"
                 name="number"
                 maxLength="3"
-                placeholder="123"
+                placeholder="000"
                 value={number}
                 onChange={(e) => handleInput(e, 'number')}
                 onPaste={(e) => handlePaste(e, 'number')}
@@ -186,11 +186,11 @@ function SearchAuto() {
                 }
               />
               <input
-                className="w-11 focus:outline-none border-b border-gray-400 text-center"
+                className="w-11 focus:outline-none border-b border-gray-400 text-center placeholder-[#CCCCCC]"
                 type="text"
                 name="series2"
-                maxLength="2"
-                placeholder="ВС"
+                maxLength="о"
+                placeholder="oo"
                 value={series2}
                 onChange={(e) => handleInput(e, 'series2')}
                 onPaste={(e) => handlePaste(e, 'series2')}
@@ -205,11 +205,11 @@ function SearchAuto() {
               />
               <div className="flex gap-1.5 items-center flex-col">
                 <input
-                  className="text-[14px] w-6 focus:outline-none text-center"
+                  className="text-[14px] w-6 focus:outline-none text-center placeholder-[#222222]"
                   type="text"
                   name="region"
                   maxLength="3"
-                  placeholder="77"
+                  placeholder="00"
                   value={region}
                   onChange={(e) => handleInput(e, 'region')}
                   onPaste={(e) => handlePaste(e, 'region')}
@@ -217,7 +217,9 @@ function SearchAuto() {
                     handleKeyDown(e, 'region', document.querySelector('[name="series2"]'), null)
                   }
                 />
-                <div className="w-4 h-2 bg-amber-500"></div>
+                <div className="w-4 h-2">
+                  <img className="object-cover" src="/public/russia.svg" alt="флаг" />
+                </div>
               </div>
             </div>
           </div>
