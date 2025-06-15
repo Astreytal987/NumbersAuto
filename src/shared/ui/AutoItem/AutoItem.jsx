@@ -1,10 +1,12 @@
+import numberAuto from '../../../../public/number.png';
+
 function AutoItem({ price, status, contact }) {
   console.log(price, status);
   return (
     <>
       <div className="overflow-hidden w-[225px] h-auto mb-[10px] bg-[#f2f2f2] rounded-[4px]">
         <div className="relative">
-          <img className="object-cover" src="/public/number.png" alt="Фото с номером" />
+          <img className="object-cover" src={numberAuto} alt="Фото с номером" />
           {/* плашка с статусом */}
           {status === 'Продано' ? (
             <p className="absolute bottom-1 left-1 bg-[#F9E282] rounded-[10px] p-[5px_10px] text-[#6D5600]">
