@@ -2,7 +2,7 @@ function AutoItem({ price, status, contact, photo }) {
   console.log(price, status);
   return (
     <>
-      <div className="overflow-hidden w-[225px] h-auto mb-[10px] bg-[#f2f2f2] rounded-[4px]">
+      <div className="overflow-hidden max-w-[225px] h-auto mb-[10px] bg-[#f2f2f2] rounded-[4px]">
         <div className="relative">
           <img className="object-cover" src={photo} alt="Фото с номером" />
           {/* плашка с статусом */}
