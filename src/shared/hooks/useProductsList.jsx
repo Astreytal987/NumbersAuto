@@ -5,7 +5,7 @@ export function useProductsList(telegramInitData) {
   return useQuery({
     queryKey: ['products', telegramInitData],
     queryFn: async () => {
-      const response = await axios.get('/api/products/list', {
+      const response = await axios.get('https://avtonomerspb.ru/api/products/list', {
         headers: {
           'X-Telegram-InitData': telegramInitData,
         },
