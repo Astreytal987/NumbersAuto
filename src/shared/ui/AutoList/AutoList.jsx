@@ -2,7 +2,7 @@ import AutoItem from '../AutoItem/AutoItem';
 import { useProductsList } from '../../hooks/useProductsList';
 
 function AutoList() {
-  const { data, error, isLoading, isError } = useProductsList(telegramInitData);
+  const { data, error, isLoading, isError } = useProductsList();
 
   if (isLoading) return <p>Загрузка...</p>;
   if (isError) return <p>Ошибка: {error.message}</p>;
