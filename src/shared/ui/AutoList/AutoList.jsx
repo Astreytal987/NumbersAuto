@@ -1,11 +1,8 @@
 import AutoItem from '../AutoItem/AutoItem';
-import { useProductsList } from '../../hooks/useProductsList';
+// import { useProductsList } from '../../hooks/useProductsList';
 
-function AutoList() {
-  const { data, error, isLoading, isError } = useProductsList();
+function AutoList({data}) {
 
-  if (isLoading) return <p>Загрузка...</p>;
-  if (isError) return <p>Ошибка: {error.message}</p>;
   return (
     <>
       <div className="catalog grid m-[0px_10px] gap-[10px]">

@@ -1,5 +1,5 @@
 import './SearchAuto.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import russia from '../../../../public/russia.svg';
 import Union from '../../../../public/Union.svg';
 
