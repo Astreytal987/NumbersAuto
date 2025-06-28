@@ -25,12 +25,10 @@ function CatalogPage() {
       }
     }
 
-    // Если нужна задержка в 1 секунду перед загрузкой, можно использовать setTimeout
     const timer = setTimeout(() => {
       getData();
     }, 1000);
 
-    // Очистка таймера при размонтировании компонента
     return () => clearTimeout(timer);
   }, []);
 
@@ -57,7 +55,7 @@ function CatalogPage() {
             </div>
         ) : (
             <div className="flex flex-col justify-center items-center">
-              <p className="font-normal not-italic text-xs leadind-[16px] text-[#666666] text-center m-[20px_10px]">
+              <p className="font-normal not-italic text-xs leading-[16px] text-[#666666] text-center m-[20px_10px]">
                 Добро пожаловать! <br />
                 Перед вами крупнейший каталог номеров в <nobr>Санкт-Петербурге</nobr>
               </p>
