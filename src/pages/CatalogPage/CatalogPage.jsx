@@ -17,11 +17,13 @@ function CatalogPage() {
           },
         });
         setData(response.data);
+        console.log(response.data)
       } catch (error) {
         console.error('Ошибка при загрузке данных:', error);
         setData([]);
       } finally {
         setLoading(false);
+        console.log("данные загрузились")
       }
     }
 
