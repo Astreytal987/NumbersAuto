@@ -17,13 +17,13 @@ function CatalogPage() {
           },
         });
         setData(response.data);
+        console.log("данные загрузились")
+        setLoading(false);
         console.log(response.data)
       } catch (error) {
+        console.log(window.Telegram?.WebApp?.initData)
         console.error('Ошибка при загрузке данных:', error);
         setData([]);
-      } finally {
-        setLoading(false);
-        console.log("данные загрузились")
       }
     }
 
