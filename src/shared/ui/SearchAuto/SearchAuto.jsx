@@ -2,6 +2,7 @@ import './SearchAuto.css';
 import React, { useState } from 'react';
 import russia from '../../../../public/russia.svg';
 import Union from '../../../../public/Union.svg';
+import useStore from "../../../app/store.js";
 
 // Маппинг латинских букв на русские
 const latinToCyrillic = {
@@ -58,6 +59,8 @@ function SearchAuto() {
   const [number, setNumber] = useState('');
   const [series2, setSeries2] = useState('');
   const [region, setRegion] = useState('');
+  const updateAutoSearch = useStore((state) => state.updateAutoSearch)
+
 
   const handleInput = (e, name) => {
     const config = validationConfig[name];
@@ -121,11 +124,17 @@ function SearchAuto() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (series1.length < 1 || number.length < 3 || series2.length < 2 || region.length < 2) {
-      alert('не так');
-    } else {
-      alert(`Отправка: ${series1}${number}${series2} ${region}`);
-    }
+    // if (series1.length < 1 || number.length < 3 || series2.length < 2 || region.length < 2) {
+      // alert('не так');
+      updateAutoSearch({
+        series1: series1,
+        number: number,
+        series2: series2,
+        region: region
+      })
+    // } else {
+    //   alert(`Отправка: ${series1}${number}${series2} ${region}`);
+    // }
   };
 
   const handleKeyDown = (e, name, prev, next) => {

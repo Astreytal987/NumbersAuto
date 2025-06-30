@@ -1,11 +1,15 @@
 import AutoList from '../../shared/ui/AutoList/AutoList';
 import SearchAuto from '../../shared/ui/SearchAuto/SearchAuto';
 import { useState, useEffect } from 'react';
+import useStore from "../../app/store.js";
 import axios from "axios";
 
 function CatalogPage() {
   const [loading, setLoading] = useState(true);
-  const [data, setData] = useState([]);
+  const autoNumbers = useStore((state) => state.autoNumbers)
+  const updateAutoNumbers = useStore((state) => state.updateAutoNumbers)
+  const autoSearch = useStore((state) => state.autoSearch)
+
 
   useEffect(() => {
     async function getData() {
@@ -16,23 +20,45 @@ function CatalogPage() {
             'X-Telegram-InitData': window.Telegram?.WebApp?.initData,
           },
         });
-        setData(response.data);
+        updateAutoNumbers(response.data);
         console.log("данные загрузились")
         setLoading(false);
         console.log(response.data)
       } catch (error) {
         console.log(window.Telegram?.WebApp?.initData)
         console.error('Ошибка при загрузке данных:', error);
-        setData([]);
+        updateAutoNumbers([]);
       }
+
     }
 
     const timer = setTimeout(() => {
       getData();
+      setLoading(false);
     }, 1000);
 
     return () => clearTimeout(timer);
   }, []);
+
+  const sortNumbers = () => {
+    return autoNumbers.filter((item) => {
+      const trimNumber = item.car_number.replace(/\s+/g, '');
+      if (!trimNumber) {
+        return false
+      }
+      const tSeries1 = trimNumber.slice(0, 1);
+      const tNumber = trimNumber.slice(1, 4);
+      const tSeries2 = trimNumber.slice(4, 6);
+      const tRegion = trimNumber.slice(6);
+
+      return (
+          tSeries1.includes(autoSearch.series1) &&
+          tNumber.includes(autoSearch.number) &&
+          tSeries2.includes(autoSearch.series2) &&
+          tRegion.includes(autoSearch.region)
+      );
+    })
+  }
 
   return (
       <>
@@ -62,7 +88,7 @@ function CatalogPage() {
                 Перед вами крупнейший каталог номеров в <nobr>Санкт-Петербурге</nobr>
               </p>
               <SearchAuto />
-              <AutoList data={data} />
+              <AutoList data={sortNumbers(autoNumbers)} />
             </div>
         )}
       </>
