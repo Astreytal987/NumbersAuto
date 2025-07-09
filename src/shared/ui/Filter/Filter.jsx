@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import SortDown from "../../../../public/SortDown.svg"
+import SortUp from "../../../../public/SortUp.svg"
 import useStore from "../../../app/store.js";
 
 export default function Filter() {
     const [valueFrom, setValueFrom] = useState("");
     const [valueEnd, setValueEnd] = useState("");
     const [error, setError] = useState(false);
+    const [downUpSort, setDownUpSort] = useState(false);
     const updateAutoFilter = useStore((state) => state.updateAutoFilter)
 
 
@@ -25,8 +27,7 @@ export default function Filter() {
         setValueEnd(onlyNums);
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const funSubmit = () => {
         const numFrom = valueFrom === "" ? 0 : Number(valueFrom);
         const numEnd = valueEnd === "" ? 999999999 : Number(valueEnd);
         if (numFrom > numEnd) {
@@ -35,26 +36,34 @@ export default function Filter() {
             setError(false);
             updateAutoFilter({
                 From: numFrom,
-                End: numEnd
+                End: numEnd,
+                Sort: downUpSort
             });
         }
     }
 
+    useEffect(() => {
+        funSubmit();
+    }, [valueFrom, valueEnd]);
+
     return (
         <div>
             <p>Цена, ₽</p>
-            <form onSubmit={handleSubmit}>
-                <div className="flex text-center justify-center">
+                <div className="flex text-center justify-center mb-9 mt-[18px]">
                     <div className={`flex flex-row text-center h-[42px]
-                        border-1 rounded-[10px] mb-5 ${error && 'border-red-500'}`}>
+                        border-1 rounded-[10px] ${error && 'border-red-500'}`}>
                         <input type="number" value={valueFrom} onChange={handleChangeFrom} onKeyPress={handleKeyPress} className="p-[10px] min-w-18 w-full" placeholder="От"/>
                         <input type="number" value={valueEnd} onChange={handleChangeEnd} onKeyPress={handleKeyPress} className="p-[10px] border-l min-w-18 w-full" placeholder="До"/>
                     </div>
-                    <button type="submit" className="h-[24px] w-[24px] m-[10px] max-w-full">
-                        <img className="object-cover h-[24px] w-[24px] max-w-full" src={SortDown} alt="" />
+                    <button type="button"
+                            onClick={() => {
+                                setDownUpSort(!downUpSort)
+                                funSubmit()}
+                            }
+                            className="h-[24px] w-[24px] m-[10px] max-w-full">
+                        <img className="object-cover h-[24px] w-[24px] max-w-full" src={downUpSort ? SortDown : SortUp} alt="" />
                     </button>
                 </div>
-            </form>
         </div>
     );
 }

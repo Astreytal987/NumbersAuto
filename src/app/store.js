@@ -10,7 +10,8 @@ const useStore = create((set) => ({
     },
     autoFilter: {
         From: 0,
-        End: 9999999999999
+        End: 9999999999999,
+        Sort: true
     },
     updateAutoSearch: (newSearch) => set({ autoSearch: newSearch }),
     updateAutoNumbers: (newNumbers) => set({ autoNumbers: newNumbers }),

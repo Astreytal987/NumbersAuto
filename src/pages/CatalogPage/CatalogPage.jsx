@@ -43,9 +43,11 @@ function CatalogPage() {
   }, []);
 
   const sortNumbers = () => {
-    const filteredNumbers = autoNumbers.filter((item) => {
-      console.log(item.amount)
-      console.log(autoFilter.From, autoFilter.End)
+    const filteredUpDown = autoNumbers.sort(autoFilter.Sort
+        ? (a, b) => a.amount - b.amount
+        : (a, b) => b.amount - a.amount)
+
+    const filteredNumbers = filteredUpDown.filter((item) => {
       return item.amount >= autoFilter.From && item.amount <= autoFilter.End
     })
 
