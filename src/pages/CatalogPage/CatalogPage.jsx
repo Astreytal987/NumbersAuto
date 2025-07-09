@@ -3,12 +3,14 @@ import SearchAuto from '../../shared/ui/SearchAuto/SearchAuto';
 import { useState, useEffect } from 'react';
 import useStore from "../../app/store.js";
 import axios from "axios";
+import Filter from "../../shared/ui/Filter/Filter.jsx";
 
 function CatalogPage() {
   const [loading, setLoading] = useState(true);
   const autoNumbers = useStore((state) => state.autoNumbers)
   const updateAutoNumbers = useStore((state) => state.updateAutoNumbers)
   const autoSearch = useStore((state) => state.autoSearch)
+  const autoFilter = useStore((state) => state.autoFilter)
 
 
   useEffect(() => {
@@ -41,7 +43,13 @@ function CatalogPage() {
   }, []);
 
   const sortNumbers = () => {
-    return autoNumbers.filter((item) => {
+    const filteredNumbers = autoNumbers.filter((item) => {
+      console.log(item.amount)
+      console.log(autoFilter.From, autoFilter.End)
+      return item.amount >= autoFilter.From && item.amount <= autoFilter.End
+    })
+
+    return filteredNumbers.filter((item) => {
       const trimNumber = item.car_number.replace(/\s+/g, '');
       if (!trimNumber) {
         return false
@@ -88,7 +96,10 @@ function CatalogPage() {
                 Перед вами крупнейший каталог номеров в <nobr>Санкт-Петербурге</nobr>
               </p>
               <SearchAuto />
-              <AutoList data={sortNumbers(autoNumbers)} />
+              <div className="p-[0px_10px]">
+                <Filter/>
+                <AutoList data={sortNumbers(autoNumbers)} />
+              </div>
             </div>
         )}
       </>

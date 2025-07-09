@@ -5,7 +5,7 @@ function AutoList({data}) {
 
   return (
     <>
-      <div className="catalog grid m-[0px_10px] gap-[10px]">
+      <div className="catalog grid gap-[10px]">
         {data.map((item) => {
           return (
             <AutoItem
@@ -14,6 +14,7 @@ function AutoList({data}) {
               status={item.status}
               contact={item.contact}
               photo={item.car_number}
+              excess={item.excess}
             />
           );
         })}

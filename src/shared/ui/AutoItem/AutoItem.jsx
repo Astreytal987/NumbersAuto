@@ -1,6 +1,6 @@
 import number from '../../../../public/number.jpg';
 
-function AutoItem({ price, status, contact, photo }) {
+function AutoItem({ price, status, contact, photo, excess }) {
   const href = contact.startsWith('@')
       ? `https://t.me/${contact.slice(1)}`
       : `tel:${contact}`;
@@ -35,6 +35,7 @@ function AutoItem({ price, status, contact, photo }) {
             {contact}
           </a>
           {/* контакт */}
+          <p className="text-sm font-normal">Перевес: <span className="text-[#222222] font-semibold">{excess ? "включен" : "не включен"}</span></p>
         </div>
       </div>
     </>

@@ -8,8 +8,14 @@ const useStore = create((set) => ({
         series2: '',
         region: ''
     },
+    autoFilter: {
+        From: 0,
+        End: 9999999999999
+    },
     updateAutoSearch: (newSearch) => set({ autoSearch: newSearch }),
     updateAutoNumbers: (newNumbers) => set({ autoNumbers: newNumbers }),
+    updateAutoFilter: (newFilter) => set({ autoFilter: newFilter }),
+
 }))
 
 export default useStore
