@@ -18,11 +18,11 @@ function AutoItem({ price, status, contact, photo, excess }) {
           {/* плашка с статусом */}
           <div>
             {status ? (
-              <p className="absolute bottom-1 left-1 bg-[#F9E282] rounded-[10px] p-[5px_10px] text-[#6D5600]">
+              <p className="itemStatus absolute bottom-1 left-1 bg-[#F9E282] rounded-[10px] p-[5px_10px] text-[#6D5600]">
                 Продано
               </p>
             ) : (
-              <p className="absolute bottom-1 left-1 bg-[#D1FFE0] rounded-[10px] p-[5px_10px] text-[#315F40]">
+              <p className="itemStatus absolute bottom-1 left-1 bg-[#D1FFE0] rounded-[10px] p-[5px_10px] text-[#315F40]">
                 Продается
               </p>
             )}

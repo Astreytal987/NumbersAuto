@@ -47,7 +47,7 @@ export default function Filter() {
     }, [valueFrom, valueEnd]);
 
     return (
-        <div>
+        <div className="mr-2">
             <p>Цена, ₽</p>
                 <div className="flex text-center justify-center mb-9 mt-[18px]">
                     <div className={`flex flex-row text-center h-[42px]
@@ -60,8 +60,8 @@ export default function Filter() {
                                 setDownUpSort(!downUpSort)
                                 funSubmit()}
                             }
-                            className="h-[24px] w-[24px] m-[10px] max-w-full">
-                        <img className="object-cover h-[24px] w-[24px] max-w-full" src={downUpSort ? SortDown : SortUp} alt="" />
+                            className="h-[24px] min-w-[24px] m-[10px]">
+                        <img src={downUpSort ? SortDown : SortUp} alt="" />
                     </button>
                 </div>
         </div>

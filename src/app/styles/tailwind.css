@@ -13,3 +13,10 @@ html {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
+
+@media (min-width: 350px) and (max-width: 430px) {
+    .itemStatus {
+        font-size: 14px;
+        bottom: 1px;
+    }
+}
