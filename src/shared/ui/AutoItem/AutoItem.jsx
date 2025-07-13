@@ -9,7 +9,7 @@ function AutoItem({ price, status, contact, photo, excess }) {
     <>
       <div className="overflow-hidden max-w-[225px] h-auto mb-[10px] bg-[#f2f2f2] rounded-[4px]">
         <div className="relative">
-          <div className="flex bg-gray-300 aspect-[5/3] w-full max-h-[200px]">
+          <div className="flex bg-white aspect-[5/3] w-full max-h-[200px]">
             <img className="object-contain" src={number} alt="Фото с номером" />
             <p className="absolute flex w-[200px] justify-center items-center text-xl pr-[10%] mt-[21%]">
               {photo}
