@@ -5,126 +5,12 @@ import useStore from "../../app/store.js";
 import axios from "axios";
 import Filter from "../../shared/ui/Filter/Filter.jsx";
 
-const ess = [
-  {
-    "id": "0a2069c4-2f91-4be1-9b0c-4783460a3524",
-    "userid": 5590809125,
-    "contact": "+892929111",
-    "status": false,
-    "amount": 1000.0,
-    "date": "2025-06-22T20:41:15.449957",
-    "excess": true,
-    "additional_information": "Гос. номер на автомобиле",
-    "car_number": "О 111 АА 178"
-  },
-  {
-    "id": "0a2069c4-2f91-4be1-9b0c-4783460a3524",
-    "userid": 5590809125,
-    "contact": "+892929111",
-    "status": true,
-    "amount": 1000.0,
-    "date": "2025-06-22T20:41:30.831179",
-    "excess": true,
-    "additional_information": "Гос. номер на автомобиле",
-    "car_number": "О 111 АА 178"
-  },
-  {
-    "id": "f9b10e83-3616-42c4-ac09-472b8db3a3a9",
-    "userid": 5590809125,
-    "contact": "@lafetikk",
-    "status": false,
-    "amount": 10000.0,
-    "date": "2025-06-22T20:46:47.096438",
-    "excess": true,
-    "additional_information": "Машина в угоне",
-    "car_number": "О 111 АА 178"
-  },
-  {
-    "id": "46e7670f-8d5a-47bd-92c3-c15dd1d3589e",
-    "userid": 5590809125,
-    "contact": "@lafetikk",
-    "status": false,
-    "amount": 1000.0,
-    "date": "2025-06-22T20:49:30.976934",
-    "excess": false,
-    "additional_information": "",
-    "car_number": "О 111 АА 178"
-  },
-  {
-    "id": "46e7670f-8d5a-47bd-92c3-c15dd1d3589e",
-    "userid": 5590809125,
-    "contact": "@lafetikk",
-    "status": true,
-    "amount": 1000.0,
-    "date": "2025-06-22T20:49:37.752263",
-    "excess": false,
-    "additional_information": "",
-    "car_number": "О 111 АА 178"
-  },
-  {
-    "id": "a6440c70-b616-4418-b78f-43171d1913d1",
-    "userid": 1974611991,
-    "contact": "@chernidelfin",
-    "status": false,
-    "amount": 1200000.0,
-    "date": "2025-06-22T20:57:27.371136",
-    "excess": true,
-    "additional_information": "Гос. номер на автомобиле",
-    "car_number": "А 777 УЕ 777"
-  },
-  {
-    "id": "a6440c70-b616-4418-b78f-43171d1913d1",
-    "userid": 1974611991,
-    "contact": "@chernidelfin",
-    "status": true,
-    "amount": 1200000.0,
-    "date": "2025-06-22T20:58:07.203765",
-    "excess": true,
-    "additional_information": "Гос. номер на автомобиле",
-    "car_number": "А 777 УЕ 777"
-  },
-  {
-    "id": "6e3fe28e-8e6f-45ce-a8c3-93b633041f3f",
-    "userid": 482233894,
-    "contact": "@webabo",
-    "status": false,
-    "amount": 10000.0,
-    "date": "2025-06-22T21:17:41.494010",
-    "excess": false,
-    "additional_information": "Гос. номер на сохранении",
-    "car_number": "О111АА78"
-  },
-  {
-    "id": "64bcd267-f75a-49e0-8f21-9a46a3e6bb93",
-    "userid": 5691859327,
-    "contact": "@theonly180",
-    "status": false,
-    "amount": 555.0,
-    "date": "2025-06-23T12:51:36.266177",
-    "excess": true,
-    "additional_information": "Гос. номер на сохранении",
-    "car_number": "О 228 АА 178"
-  },
-  {
-    "id": "64bcd267-f75a-49e0-8f21-9a46a3e6bb93",
-    "userid": 5691859327,
-    "contact": "@theonly180",
-    "status": true,
-    "amount": 555.0,
-    "date": "2025-06-23T12:55:57.992592",
-    "excess": true,
-    "additional_information": "Гос. номер на сохранении",
-    "car_number": "О 228 АА 178"
-  }
-]
-
 function CatalogPage() {
   const [loading, setLoading] = useState(true);
   const autoNumbers = useStore((state) => state.autoNumbers)
   const updateAutoNumbers = useStore((state) => state.updateAutoNumbers)
   const autoSearch = useStore((state) => state.autoSearch)
   const autoFilter = useStore((state) => state.autoFilter)
-
 
   useEffect(() => {
     async function getData() {

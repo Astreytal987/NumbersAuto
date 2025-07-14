@@ -13,7 +13,8 @@ function AutoList({data}) {
               price={item.amount}
               status={item.status}
               contact={item.contact}
-              photo={item.car_number}
+              numberAuto={item.car_number}
+              id={item.id}
               excess={item.excess}
             />
           );
