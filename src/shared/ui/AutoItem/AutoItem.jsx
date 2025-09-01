@@ -28,6 +28,10 @@ function AutoItem({ price, status, contact, numberAuto, excess, id }) {
     loadImgAuto();
   }, []);
 
+  const numberRaw = numberAuto.toLowerCase().split(' ')
+  const regionNumber = numberRaw.slice(-1)
+    const mainNumber = numberRaw.slice(0, -1).join('')
+
   const [isEnlarged, setIsEnlarged] = useState(false);
 
   const toggleImageSize = () => {
@@ -56,6 +60,7 @@ function AutoItem({ price, status, contact, numberAuto, excess, id }) {
           </div>
         </div>
         <div className="m-[20px_10px] flex flex-col gap-2">
+            <div className="text-xl inline-flex font-semibold gap text-[#222222]"> <p>{mainNumber}</p> <p className="text-base font-normal text-[#444444]">{regionNumber}</p></div>
           <p className="text-2xl font-normal text-[#222222]">{price.toLocaleString()} ₽</p>
           <a className="text-[#1BA1E4] text-sm font-normal" href={href} target="_blank" rel="noopener noreferrer">
             {contact}
