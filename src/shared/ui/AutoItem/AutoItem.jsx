@@ -28,9 +28,9 @@ function AutoItem({ price, status, contact, numberAuto, excess, id }) {
     loadImgAuto();
   }, []);
 
-  const numberRaw = numberAuto.toLowerCase().split(' ')
-  const regionNumber = numberRaw.slice(-1)
-    const mainNumber = numberRaw.slice(0, -1).join('')
+  const numberRaw = numberAuto.toLowerCase().replaceAll(' ', '')
+  const regionNumber = numberRaw.substring(6);
+  const mainNumber = numberRaw.substring(0, 6);
 
   const [isEnlarged, setIsEnlarged] = useState(false);
 
